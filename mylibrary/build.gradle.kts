@@ -142,37 +142,37 @@ afterEvaluate {
 
         publications {
             create<MavenPublication>("demoDebug") {
-                groupId = "com.tuempresa"
+                groupId = "com.empresa"
                 artifactId = "mylibrary-demo-debug"
                 version = "1.0.0"
                 from(components["demoDebug"])
             }
             create<MavenPublication>("demoRelease") {
-                groupId = "com.tuempresa"
+                groupId = "com.empresa"
                 artifactId = "mylibrary-demo-release"
                 version = "1.0.0"
                 from(components["demoRelease"])
             }
             create<MavenPublication>("demoStaging") {
-                groupId = "com.tuempresa"
+                groupId = "com.empresa"
                 artifactId = "mylibrary-demo-staging"
                 version = "1.0.0"
                 from(components["demoStaging"])
             }
             create<MavenPublication>("fullDebug") {
-                groupId = "com.tuempresa"
+                groupId = "com.empresa"
                 artifactId = "mylibrary-full-debug"
                 version = "1.0.0"
                 from(components["fullDebug"])
             }
             create<MavenPublication>("fullRelease") {
-                groupId = "com.tuempresa"
+                groupId = "com.empresa"
                 artifactId = "mylibrary-full"
                 version = "1.0.0"
                 from(components["fullRelease"])
             }
             create<MavenPublication>("fullStaging") {
-                groupId = "com.tuempresa"
+                groupId = "com.empresa"
                 artifactId = "mylibrary-full-staging"
                 version = "1.0.0"
                 from(components["fullStaging"])
