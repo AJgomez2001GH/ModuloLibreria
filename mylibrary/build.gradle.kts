@@ -138,13 +138,32 @@ afterEvaluate {
     extensions.configure<PublishingExtension>("publishing") {
         //publications → lo que quieres publicar
         // Crea una publicación Maven llamada "release" (puede llamarse como quieras).
-        publications {
 
+
+        publications {
+            create<MavenPublication>("demoDebug") {
+                groupId = "com.tuempresa"
+                artifactId = "mylibrary-demo-debug"
+                version = "1.0.0"
+                from(components["demoDebug"])
+            }
             create<MavenPublication>("demoRelease") {
                 groupId = "com.tuempresa"
-                artifactId = "mylibrary"
+                artifactId = "mylibrary-demo-release"
                 version = "1.0.0"
                 from(components["demoRelease"])
+            }
+            create<MavenPublication>("demoStaging") {
+                groupId = "com.tuempresa"
+                artifactId = "mylibrary-demo-staging"
+                version = "1.0.0"
+                from(components["demoStaging"])
+            }
+            create<MavenPublication>("fullDebug") {
+                groupId = "com.tuempresa"
+                artifactId = "mylibrary-full-debug"
+                version = "1.0.0"
+                from(components["fullDebug"])
             }
             create<MavenPublication>("fullRelease") {
                 groupId = "com.tuempresa"
@@ -152,27 +171,16 @@ afterEvaluate {
                 version = "1.0.0"
                 from(components["fullRelease"])
             }
-
-            create<MavenPublication>("demoDebug") {
+            create<MavenPublication>("fullStaging") {
                 groupId = "com.tuempresa"
-                artifactId = "mylibrary-demo-debug"
+                artifactId = "mylibrary-full-staging"
                 version = "1.0.0"
-                from(components["demoDebug"])
+                from(components["fullStaging"])
             }
-
-            create<MavenPublication>("fullDebug") {
-                groupId = "com.tuempresa"
-                artifactId = "mylibrary-full-debug"
-                version = "1.0.0"
-                from(components["fullDebug"])
-            }
-
-
-
-
-
-
         }
+
+
+
         //repositories → a dónde publicar
         //Esto indica que el .aar y los metadatos (.pom, etc.) se publicarán en:
         //<tu_módulo>/build/repo/com/tuempresa/mylibrary/1.0.0/
@@ -210,6 +218,7 @@ afterEvaluate {
                 //│                       ├── mylibrary-1.0.0.aar // la libreria
                 //│                       └── mylibrary-1.0.0.pom // metadatos de maven
                 url = uri("$buildDir/repo")
+
             }
         }
     }
